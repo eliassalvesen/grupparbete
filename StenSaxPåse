@@ -6,6 +6,15 @@ victory = [[1, 2], [2, 3], [3, 1]]
 
 def checkResults(user, computer, cp_points, user_points):
 
+    #checkResults tar användarens och datorns val som argument och skapar en lista för respektive värde
+    #Sedan returneras ett värde för att ange vem som vann eller om det blev oavgjort.
+    #(input list) Tar talet du gav och talet datorn gav och lägger dem i en lista som används i elif funktionen nedanför
+    #(if) om användarens val är samma som datorns val så påverkas inte ställningen
+    #(else) söker ifall inputlist finns i listan victory, ifall den finns så betyder det att användaren vann och 1 läggs till i user_points (user_points +=1)
+    #(else) i alla andra fall förlorar användaren och datorns resultat ökar med 1 (cp_points +=1)
+    #returnerar user_points och cp_points vilket är hela checkResults syfte
+    #(options[computer-1]) tar värdet som datorn gav ut och söker i listan options efter det korrelerande funktionen (ex. "sten"). (-1) eftersom listan börjar från 0
+
     inputList = [user, computer]
 
     if user == computer:

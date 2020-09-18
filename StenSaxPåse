@@ -23,15 +23,15 @@ def checkResults(user, computer, cp_points, user_points):
 
 
 def main():
+    #   spelaren** = computer or human
+    #   while(True) kör programmet.
+    #   När den första spelaren** nått det inmatade poängantalet avslutas spelet med brake när if satsen uppfylls
+    #   och visar resultatet till användaren.
     cp_points = 0
     user_points = 0
     print("*" * 17 + "\nSten - Sax - Påse" + "\n" + "*" * 17)
     score_limit = int(input("Hur många poäng behövs för att vinna?\n"))
-
-    # spelaren** = computer or human
-    # while(True) kör programmet.
-    # När den första spelaren** nått det inmatade poängantalet avslutas spelet med brake när if satsen uppfylls
-    # och visar resultatet till användaren.
+    
     while (True):
         user = int(input("Gör ditt val:\n1:Sten\n2:Sax\n3:Påse\n"))
         computer = random.randint(1, 3)

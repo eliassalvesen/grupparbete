@@ -9,4 +9,4 @@ def checkResults(user, computer):
 
     return x
 
-slumptalsGeneratorn  = random.randint(0,3)
+slumptalsGeneratorn  = random.randint(1,3)

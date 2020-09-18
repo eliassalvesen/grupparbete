@@ -5,28 +5,27 @@ victory = [[1, 2], [2, 3], [3, 1]]
 
 
 def checkResults(user, computer, cp_points, user_points):
-    # checkResults(user,computer) som tar användarens och
-    # datorns val som argument och returnerar ett värde för att
-    # ange vem som vann eller om det blev oavgjort.
+
     inputList = [user, computer]
 
     if user == computer:
-        print("Det blev oavgjort! Du valde", (options[user - 1]), "och datorn valde", (options[computer - 1]))
+        print("Datorn valde", (options[computer - 1]) + ", du valde", (options[user - 1]) + ". Oavgjort")
 
     elif inputList in victory:
-        print("Du vann! Du valde:", (options[user - 1]), "och datorn valde", (options[computer - 1]))
+        print("Datorn valde", (options[computer - 1]) + ", du valde", (options[user - 1]) + ". Du vann")
         user_points += 1
 
     else:
-        print("Du förlorade! Du valde:", (options[user-1]), "och datorn valde", (options[computer - 1]))
+        print("Datorn valde", (options[computer - 1]) + ", du valde", (options[user - 1]) + ". Datorn vann")
         cp_points += 1
 
     return user_points, cp_points
 
+
 def main():
     cp_points = 0
     user_points = 0
-    print("*" * 15 + "\nSten Sax Påse" + "\n" + "*" * 15)
+    print("*" * 17 + "\nSten - Sax - Påse" + "\n" + "*" * 17)
     score_limit = int(input("Hur många poäng behövs för att vinna?\n"))
 
     # **player/players = computer or human
@@ -45,5 +44,6 @@ def main():
     print("Datorn:", cp_points, "poäng")
     print("Användaren:", user_points, "poäng")
     print()
-    
+
+
 main()

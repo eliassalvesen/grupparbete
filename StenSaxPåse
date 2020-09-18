@@ -6,10 +6,10 @@ victory = [[1, 2], [2, 3], [3, 1]]
 
 def checkResults(user, computer, cp_points, user_points):
 
-    #checkResults tar användarens och datorns val som argument och skapar en lista för respektive värde, sedan returneras ett poäng till den som vann.
-    #(if) om användarens val är samma som datorns val så påverkas inte ställningen
-    #(elif) söker ifall inputlist finns i listan victory, ifall den finns så betyder det att användaren vann och 1 läggs till i user_points (user_points +=1)
-    #(options[computer-1]) tar värdet som datorn gav ut och söker i listan options efter det korrelerande funktionen (ex. "sten"). (-1) eftersom listan börjar från 0
+    #   checkResults tar användarens och datorns val och skapar en lista med respektive värde
+    #   (if) om användarens val är samma som datorns val så påverkas inte ställningen
+    #   (elif) söker ifall inputlist finns i listan victory, om den finns så betyder det att användaren vann och då läggs det till 1 till i user_points (user_points +=1)
+    #   (options[computer-1]) tar värdet som datorn gav ut och söker i listan options efter det korrelerande funktionen (ex. "sten"). (-1) eftersom listan börjar från 0
 
     inputList = [user, computer]
 

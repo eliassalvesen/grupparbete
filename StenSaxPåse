@@ -1,11 +1,10 @@
 import random
 
 options = ["sten", "sax", "påse"]
-victory = [[1, 2], [2, 3], [3, 1]]
+victoryList = [[1, 2], [2, 3], [3, 1]]
 
 
 def checkResults(user, computer, cp_points, user_points):
-
     #   checkResults tar användarens och datorns val och skapar en lista med respektive värde
     #   (if) om användarens val är samma som datorns val så påverkas inte ställningen
     #   (elif) söker ifall inputlist finns i listan victory, om den finns så betyder det att användaren vann och då läggs det till 1 till i user_points (user_points +=1)
@@ -16,7 +15,7 @@ def checkResults(user, computer, cp_points, user_points):
     if user == computer:
         print("Datorn valde", (options[computer - 1]) + ", du valde", (options[user - 1]) + ". Oavgjort")
 
-    elif inputList in victory:
+    elif inputList in victoryList:
         print("Datorn valde", (options[computer - 1]) + ", du valde", (options[user - 1]) + ". Du vann")
         user_points += 1
 
@@ -36,7 +35,7 @@ def main():
     user_points = 0
     print("*" * 17 + "\nSten - Sax - Påse" + "\n" + "*" * 17)
     score_limit = int(input("Hur många poäng behövs för att vinna?\n"))
-    
+
     while (True):
         user = int(input("Gör ditt val:\n1:Sten\n2:Sax\n3:Påse\n"))
         computer = random.randint(1, 3)

@@ -28,10 +28,10 @@ def main():
     print("*" * 17 + "\nSten - Sax - Påse" + "\n" + "*" * 17)
     score_limit = int(input("Hur många poäng behövs för att vinna?\n"))
 
-    # **player/players = computer or human
-    # while(True) runs the program until either players** gets the desired score.
-    # When first player** reaches the desired score the program terminates,
-    # and displays the end results to the user.
+    # spelaren** = computer or human
+    # while(True) kör programmet.
+    # När den första spelaren** nått det inmatade poängantalet avslutas spelet med brake när if satsen uppfylls
+    # och visar resultatet till användaren.
     while (True):
         user = int(input("Gör ditt val:\n1:Sten\n2:Sax\n3:Påse\n"))
         computer = random.randint(1, 3)

@@ -2,6 +2,8 @@ import random
 
 print("*" * 15 + "\nSten -Sax -Påse" + "\n" + "*" * 15)
 
+def main():
+    
 
 def checkResults(user, computer):
     # checkResults(user,computer) som tar användarens och datorns val som argument och returnerar ett värde för att

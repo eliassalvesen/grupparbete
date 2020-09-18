@@ -1,8 +1,13 @@
+# Sten, Sax, påse
+# Anton Winquist och Elias Salvesen
+
 import random
 
 options = ["sten", "sax", "påse"]
 victoryList = [[1, 2], [2, 3], [3, 1]]
-    #   används till att identifiera ifall användaren vann(1=sten,2=sax...)
+
+
+#   används till att identifiera ifall användaren vann(1=sten,2=sax...)
 
 def checkResults(user, computer, cp_points, user_points):
     #   checkResults tar användarens och datorns val och skapar en lista med respektive värde
@@ -10,7 +15,6 @@ def checkResults(user, computer, cp_points, user_points):
     #   (elif) söker ifall inputlist finns i listan victory, om den finns så betyder det att användaren vann och då-
     #   läggs det till 1 till i user_points (user_points +=1)
     #   (options[computer-1]) är datorns värde -1 vilket motsvarar datorns val från listan options
-    
 
     inputList = [user, computer]
 

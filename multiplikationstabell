@@ -1,0 +1,39 @@
+import random
+
+
+def main():
+    questions = int(input("how many questions?: "))
+    win = 0
+    lose = 0
+    for tal in range(questions):
+        num1 = random.randint(0, 10)
+        num2 = random.randint(0, 10)
+        print("What is", num1, "times", num2, "?")
+        answer = int(input())
+        if answer == (num1 * num2):
+            print("Perfect!")
+            win += 1
+        else:
+            print("Sorry the correct answer is:", num1 * num2)
+            lose += 1
+
+    print("I asked you", (win + lose), "questions, and you answered", win, "of the correctly", print(procent(win, lose)))
+
+
+def procent(win, lose):
+    x = round((win / (win + lose)) * 100)
+    if x == 100:
+        return "100% correct"
+    elif 99 > x > 80:
+        return "80-99% correct"
+    elif 79 > x > 60:
+        return "60-79% correct"
+    elif 59 > x > 40:
+        return "40-59% correct"
+    elif 39 > x > 20:
+        return "20-39% correct"
+    elif 19 > x > 0:
+        return "0-19% correct"
+
+
+main()

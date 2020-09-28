@@ -4,11 +4,11 @@ import random
 def calculation(value1, value2, user_answer, points, game_level):
     true_answer = value1 * value2
     if user_answer == true_answer:
-        print("your answer was correct, the difficulty is going up!") 
+        print("Your answer was correct, the difficulty is going up!")
         points += 1
         game_level += 1
     else:
-        print("your answer was not correct!")
+        print("Your answer was not correct!")
         print("the correct answer was", true_answer)
     return points, game_level
 
@@ -37,6 +37,7 @@ def gameDifficulty(choice):
     elif choice == 3:
         return 20
     else:
+        print("Please select only between numbers 1-3")
         main()
 
 
@@ -48,7 +49,7 @@ def main():
     for i in range(0, user_rounds):
         n1 = random.randint(1, game_level)
         n2 = random.randint(1, game_level)
-        print("what is", n1, "*", n2, "?")
+        print("What is", n1, "*", n2, "?")
         user = int(input("Your answer: "))
         points, game_level = calculation(n1, n2, user, points, game_level)
 

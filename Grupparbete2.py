@@ -13,7 +13,7 @@ def calculation(value1, value2, user_answer, points, game_level):
     return points, game_level
 
 
-def procent(points, user_rounds):
+def grade(points, user_rounds):
     x = round((points / user_rounds) * 100)
     if x == 100:
         return "100%"
@@ -53,7 +53,7 @@ def main():
         user = int(input("Your answer: "))
         points, game_level = calculation(n1, n2, user, points, game_level)
 
-    endscore = procent(points, user_rounds)
+    endscore = grade(points, user_rounds)
     print("Your final score is", points, "/", user_rounds, "correct,", endscore)
 
 

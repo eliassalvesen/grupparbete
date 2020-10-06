@@ -34,7 +34,8 @@ def grade(points, user_rounds):
     elif 19 > x >= 0:
         return "0-19%"
 
-
+    # Checks user choice and returns starting value (difficulty) for the game
+    # Else function lets the user type another number because number was not between 1-3
 
 def gameDifficulty(choice):
     if choice == 1:

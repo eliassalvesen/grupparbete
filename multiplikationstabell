@@ -1,6 +1,9 @@
 import random
 
 
+    # Calculation compares the users answer to the right answer and either increases difficulty and score or
+    # returns the same values back so the game continues with same difficulty
+
 def calculation(value1, value2, user_answer, points, game_level):
     true_answer = value1 * value2
     if user_answer == true_answer:
@@ -12,21 +15,25 @@ def calculation(value1, value2, user_answer, points, game_level):
         print("the correct answer was", true_answer)
     return points, game_level
 
+    # grade function takes the rounds played and points and calculates the win percentage
+    # depending on the value it returns the corresponding string indicating the win-rate
+
 
 def grade(points, user_rounds):
     x = round((points / user_rounds) * 100)
     if x == 100:
         return "100%"
-    elif 99 > x > 80:
+    elif 99 > x >= 80:
         return "80-99%"
-    elif 79 > x > 60:
+    elif 79 > x >= 60:
         return "60-79%"
-    elif 59 > x > 40:
+    elif 59 > x >= 40:
         return "40-59%"
-    elif 39 > x > 20:
+    elif 39 > x >= 20:
         return "20-39%"
     elif 19 > x >= 0:
         return "0-19%"
+
 
 
 def gameDifficulty(choice):

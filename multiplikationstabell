@@ -58,8 +58,8 @@ def main():
         # The main function lets the palyer is able to choose which level they want to play and the amount of rounds.
         # A for loop is responsible for assigning two random intergars and displaying it to the user.
         # The function "calculation" returns both player score and game_level(which increeses if the
-        # answer is correct.
-        # endscore is returned and printed to the user
+        # answer is correct).
+        # Endscore is returned and printed to the user.
     
     points = 0
     game_level = int(input("Select difficulty level\n1 = Easy\n2 = Medium\n3 = Hard\n"))

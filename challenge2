@@ -1,0 +1,96 @@
+import string
+
+
+def encrypt(message, key):
+    # encrypted message is empty
+    encryptedMessage = ""
+
+    for character in message:
+        if character in string.ascii_uppercase:
+            oldascii = ord(character)
+            newascii = (oldascii + key - 65) % 26 + 65
+            newchar = chr(newascii)
+            encryptedMessage += newchar
+
+
+        elif character in string.ascii_lowercase:
+            oldascii = ord(character)
+            newascii = (oldascii + key - 97) % 26 + 97
+            newchar = chr(newascii)
+            encryptedMessage += newchar
+
+
+        else:
+            encryptedMessage += character
+    print(encryptedMessage)
+
+
+def decrypt(message, key):
+    # encrypted message is empty
+    encryptedMessage = ""
+
+    for character in message:
+        if character in string.ascii_uppercase:
+            oldascii = ord(character)
+            newascii = (oldascii - key - 65) % 26 + 65
+            newchar = chr(newascii)
+            encryptedMessage += newchar
+
+
+        elif character in string.ascii_lowercase:
+            oldascii = ord(character)
+            newascii = (oldascii - key - 97) % 26 + 97
+            newchar = chr(newascii)
+            encryptedMessage += newchar
+
+
+        else:
+            encryptedMessage += character
+    print(encryptedMessage)
+
+def decryptTester(message):
+    # encrypted message is empty
+    encryptedMessage = ""
+
+    TEST = 0
+
+
+    for numbers in range(0, 26):
+        encryptedMessage = ""
+        encryptedMessage += (str(TEST) + " ")
+        TEST += 1
+        for character in message:
+            if character in string.ascii_uppercase:
+                oldascii = ord(character)
+                newascii = (oldascii - numbers - 65) % 26 + 65
+                newchar = chr(newascii)
+                encryptedMessage += newchar
+
+
+            elif character in string.ascii_lowercase:
+                oldascii = ord(character)
+                newascii = (oldascii - numbers - 97) % 26 + 97
+                newchar = chr(newascii)
+                encryptedMessage += newchar
+
+
+            else:
+                encryptedMessage += character
+
+
+        print(encryptedMessage)
+
+
+
+x = int(input("Decrypt (1)\nEncrypt (2)\nDecrypt Tester (3)"))
+if x == 2:
+    message = input("Input message:")
+    key = int(input("Key:"))
+    encrypt(message, key)
+elif x == 1:
+    message = input("Input message:")
+    key = int(input("Key:"))
+    decrypt(message, key)
+elif x == 3:
+    message = input("Input message:")
+    decryptTester(message)

@@ -1,96 +1,82 @@
 import string
 
 
-def encrypt(message, key):
-    # encrypted message is empty
+def crypt(message, key):
+
+    # Takes value from user and changes the value by amount defined in (key)
+    # (if) is for uppercase letters and (else) is for lowercase letters
+    # everything else skips encryption process
+    # process loops this for every character and adds them to encryptedMessage
+
     encryptedMessage = ""
 
     for character in message:
         if character in string.ascii_uppercase:
-            oldascii = ord(character)
-            newascii = (oldascii + key - 65) % 26 + 65
-            newchar = chr(newascii)
-            encryptedMessage += newchar
-
+            old = ord(character)
+            new = (old + key - 65) % 26 + 65
+            newChar = chr(new)
+            encryptedMessage += newChar
 
         elif character in string.ascii_lowercase:
-            oldascii = ord(character)
-            newascii = (oldascii + key - 97) % 26 + 97
-            newchar = chr(newascii)
-            encryptedMessage += newchar
-
+            old = ord(character)
+            new = (old + key - 97) % 26 + 97
+            newChar = chr(new)
+            encryptedMessage += newChar
 
         else:
             encryptedMessage += character
     print(encryptedMessage)
 
 
-def decrypt(message, key):
-    # encrypted message is empty
-    encryptedMessage = ""
+def Tester(message):
 
-    for character in message:
-        if character in string.ascii_uppercase:
-            oldascii = ord(character)
-            newascii = (oldascii - key - 65) % 26 + 65
-            newchar = chr(newascii)
-            encryptedMessage += newchar
+    # Function is identical to (def crypt) but loops the key with numbers 1-26
+    # (Count) displays the key corresponding to the outputted word
 
-
-        elif character in string.ascii_lowercase:
-            oldascii = ord(character)
-            newascii = (oldascii - key - 97) % 26 + 97
-            newchar = chr(newascii)
-            encryptedMessage += newchar
-
-
-        else:
-            encryptedMessage += character
-    print(encryptedMessage)
-
-def decryptTester(message):
-    # encrypted message is empty
-    encryptedMessage = ""
-
-    TEST = 0
-
-
-    for numbers in range(0, 26):
+    Count = 1
+    print("For The key:")
+    for numbers in range(1, 27):
         encryptedMessage = ""
-        encryptedMessage += (str(TEST) + " ")
-        TEST += 1
+        encryptedMessage += (str(Count) + ". ")
+        Count += 1
         for character in message:
             if character in string.ascii_uppercase:
-                oldascii = ord(character)
-                newascii = (oldascii - numbers - 65) % 26 + 65
-                newchar = chr(newascii)
-                encryptedMessage += newchar
-
+                old = ord(character)
+                new = (old - numbers - 65) % 26 + 65
+                newChar = chr(new)
+                encryptedMessage += newChar
 
             elif character in string.ascii_lowercase:
-                oldascii = ord(character)
-                newascii = (oldascii - numbers - 97) % 26 + 97
-                newchar = chr(newascii)
-                encryptedMessage += newchar
-
+                old = ord(character)
+                new = (old - numbers - 97) % 26 + 97
+                newChar = chr(new)
+                encryptedMessage += newChar
 
             else:
                 encryptedMessage += character
 
-
         print(encryptedMessage)
 
 
+def main():
 
-x = int(input("Decrypt (1)\nEncrypt (2)\nDecrypt Tester (3)"))
-if x == 2:
-    message = input("Input message:")
-    key = int(input("Key:"))
-    encrypt(message, key)
-elif x == 1:
-    message = input("Input message:")
-    key = int(input("Key:"))
-    decrypt(message, key)
-elif x == 3:
-    message = input("Input message:")
-    decryptTester(message)
+    x = int(input("Press \n1. Create encrypted word\n2. Decrypt word to plain text\n3. Test key for given word\n"))
+
+    if x > 3:
+        print("Please in put Value only between 1-3!")
+        main()
+    else:
+        message = input("Input message:")
+        if x == 1:
+            key = int(input("Key:"))
+            crypt(message, key)
+
+        elif x == 2:
+            key = int(input("Key:"))
+            crypt(message, key * -1)
+
+        elif x == 3:
+            Tester(message)
+
+
+main()

@@ -82,23 +82,25 @@ def break_crypt(message):
 
 
 def main():
+    while True:
+        print("\nWhat would you like to do?")
+        option = int(input("Press \n1. Create encrypted word\n2. Decrypt word to plain text\n3. Test key for given word\n4. Quit\n"))
 
-    option = int(input("Press \n1. Create encrypted word\n2. Decrypt word to plain text\n3. Test key for given word\n"))
+        if option == 1:
+            message = input("Input message:")
+            key = int(input("Key:"))
+            encrypt(message, key)
 
-
-    message = input("Input message:")
-    if option == 1:
-        key = int(input("Key:"))
-        encrypt(message, key)
-
-    elif option == 2:
-        key = int(input("Key:"))
-        decrypt(message, key)
-
-    elif option == 3:
-        break_crypt(message)
-    else:
-     print("Please in put Value only between 1-3!")
-     main()
+        elif option == 2:
+            message = input("Input message:")
+            key = int(input("Key:"))
+            decrypt(message, key)
+        elif option == 3:
+            message = input("Input message:")
+            break_crypt(message)
+        elif option == 4:
+            break
+        else:
+            print("Please in put Value only between 1-4!")
 
 main()

@@ -81,7 +81,7 @@ def break_crypt(message):
         print(decryptedMessage)
 
 
-def main():
+def action():
     while True:
         print("\nWhat would you like to do?")
         option = int(input("Press \n1. Create encrypted word\n2. Decrypt word to plain text\n3. Test key for given word\n4. Quit\n"))
@@ -102,5 +102,6 @@ def main():
             break
         else:
             print("Please in put Value only between 1-4!")
-
+def main():
+    action()
 main()

@@ -25,60 +25,60 @@ def encrypt(message, key):
 
         else:
             encryptedMessage += character
-    print(encryptedMessage)
+    print("Your encrypted message is:", encryptedMessage)
 
 def decrypt(message, key):
 
-    # Identical to encrypt
+    # Works identically to def encrypt except key is inverted
 
-    encryptedMessage = ""
+    decryptedMessage = ""
 
     for character in message:
         if character in string.ascii_uppercase:
             old = ord(character)
             new = (old + (key * -1) - 65) % 26 + 65
             newChar = chr(new)
-            encryptedMessage += newChar
+            decryptedMessage += newChar
 
         elif character in string.ascii_lowercase:
             old = ord(character)
             new = (old + (key * -1) - 97) % 26 + 97
             newChar = chr(new)
-            encryptedMessage += newChar
+            decryptedMessage += newChar
 
         else:
-            encryptedMessage += character
-    print(encryptedMessage)
+            decryptedMessage += character
+    print("Your decrypted message is:", decryptedMessage)
 
 
 def break_crypt(message):
 
-    # Function is identical to (def crypt) but loops the key with numbers 1-26
+    # Function is identical to (def encrypt) but loops the key with numbers 1-26
     # (Count) displays the key corresponding to the outputted word
 
     Count = 1
     print("For The key:")
     for numbers in range(1, 27):
-        encryptedMessage = ""
-        encryptedMessage += (str(Count) + ". ")
+        decryptedMessage = ""
+        decryptedMessage += (str(Count) + ". ")
         Count += 1
         for character in message:
             if character in string.ascii_uppercase:
                 old = ord(character)
                 new = (old - numbers - 65) % 26 + 65
                 newChar = chr(new)
-                encryptedMessage += newChar
+                decryptedMessage += newChar
 
             elif character in string.ascii_lowercase:
                 old = ord(character)
                 new = (old - numbers - 97) % 26 + 97
                 newChar = chr(new)
-                encryptedMessage += newChar
+                decryptedMessage += newChar
 
             else:
-                encryptedMessage += character
+                decryptedMessage += character
 
-        print(encryptedMessage)
+        print(decryptedMessage)
 
 
 def main():

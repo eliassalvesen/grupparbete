@@ -1,7 +1,7 @@
 import string
 
 
-def crypt(message, key):
+def encrypt(message, key):
 
     # Takes value from user and changes the value by amount defined in (key)
     # (if) is for uppercase letters and (else) is for lowercase letters
@@ -27,8 +27,31 @@ def crypt(message, key):
             encryptedMessage += character
     print(encryptedMessage)
 
+def decrypt(message, key):
 
-def Tester(message):
+    # Identical to encrypt
+
+    encryptedMessage = ""
+
+    for character in message:
+        if character in string.ascii_uppercase:
+            old = ord(character)
+            new = (old + (key * -1) - 65) % 26 + 65
+            newChar = chr(new)
+            encryptedMessage += newChar
+
+        elif character in string.ascii_lowercase:
+            old = ord(character)
+            new = (old + (key * -1) - 97) % 26 + 97
+            newChar = chr(new)
+            encryptedMessage += newChar
+
+        else:
+            encryptedMessage += character
+    print(encryptedMessage)
+
+
+def break_crypt(message):
 
     # Function is identical to (def crypt) but loops the key with numbers 1-26
     # (Count) displays the key corresponding to the outputted word
@@ -60,23 +83,22 @@ def Tester(message):
 
 def main():
 
-    x = int(input("Press \n1. Create encrypted word\n2. Decrypt word to plain text\n3. Test key for given word\n"))
+    option = int(input("Press \n1. Create encrypted word\n2. Decrypt word to plain text\n3. Test key for given word\n"))
 
-    if x > 3:
-        print("Please in put Value only between 1-3!")
-        main()
+
+    message = input("Input message:")
+    if option == 1:
+        key = int(input("Key:"))
+        encrypt(message, key)
+
+    elif option == 2:
+        key = int(input("Key:"))
+        decrypt(message, key)
+
+    elif option == 3:
+        break_crypt(message)
     else:
-        message = input("Input message:")
-        if x == 1:
-            key = int(input("Key:"))
-            crypt(message, key)
-
-        elif x == 2:
-            key = int(input("Key:"))
-            crypt(message, key * -1)
-
-        elif x == 3:
-            Tester(message)
-
+     print("Please in put Value only between 1-3!")
+     main()
 
 main()

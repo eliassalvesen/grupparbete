@@ -2,13 +2,24 @@ import string
 import random
 import logging
 positiva = ["Berätta mer", "Jag förstår...", "Ahaa...", "Jag lyssnar..."]
-first_person = ["jag", "min", "mitt", "mig", "mina"]
-second_person = ["du", "din", "ditt", "dig", "dina"]
+person_list = [["jag", "du"], ["min", "din"], ["mitt", "ditt"], ["mig", "din"], ["mina", "dina"]]
 negativa = ["Varör är du på så där dåligt humör?", "Jävla problembarn!", "Åk tillbaka till pampas då!"]
+
 def log(svar):
     f = open("eliza.log", "a")
     f.write(svar)
     f.close()
+
+def test(t):
+
+    for item in person_list:
+        for i in range(len(item)):
+            if item[i] == t:
+                print(person_list.index(item),i)
+                if i == 0:
+                    return person_list[person_list.index(item)][1]
+                elif i == 1:
+                    return person_list[person_list.index(item)][0]
 
 def main():
     print("**************************************************")
@@ -21,47 +32,22 @@ def main():
     print()
     print('Berätta för mig om dina problem...')
 
- # Fortsätt diskussionen i all oändlighet
     while True:
- # Vänta på att användaren matar in något
         text = input("\n> ")
         text = text.lower()
         urspr_ord = str.split(text)
-        if text == "hejs svejs":
+        if text == "hejs svejs" or text == "ok, that does it!" or text == "sluta!" or text == "tack och god natt!":
             break
         else:
             first_p(urspr_ord)
     print('Tack för besöket. Betala in 150 EUR på mitt konto.')
 
 
-# Skapa en ny lista som innehåller samma ord (en kopia)
-
-# Gå igenom alla ord, ett åt gången. Om ordet är i första person, så byt ut det till
-# motsvarande ord i andra person
-
 def first_p(urspr_ord):
     nya_ord = urspr_ord[:]
     for i in range(len(urspr_ord)):
-        if urspr_ord[i] == "jag":
-            nya_ord[i] = "du"
-        elif urspr_ord[i] == "min":
-            nya_ord[i] = "din"
-        elif urspr_ord[i] == "mitt":
-            nya_ord[i] = "ditt"
-        elif urspr_ord[i] == "mig":
-            nya_ord[i] = "dig"
-        elif urspr_ord[i] == "mina":
-            nya_ord[i] = "dina"
-        elif urspr_ord[i] == "du":
-            nya_ord[i] = "ja"
-        elif urspr_ord[i] == "din":
-            nya_ord[i] = "min"
-        elif urspr_ord[i] == "ditt":
-            nya_ord[i] = "mitt"
-        elif urspr_ord[i] == "dig":
-            nya_ord[i] = "mig"
-        elif urspr_ord[i] == "dina":
-            nya_ord[i] = "mina"
+        test(urspr_ord[i])
+        nya_ord[i] = test(urspr_ord)
     if "nej" in urspr_ord or "aldrig" in urspr_ord:
         svar = random.choice(negativa)
         print(svar)
@@ -75,26 +61,5 @@ def first_p(urspr_ord):
         svar = " ".join(nya_ord)
         print(svar)
         log(svar)
-# Slå ihop alla ord i nya_ord-listan till en sträng och skriv ut den
-
- # Svara "smart" genom att slumpmässigt välja ett uttryck ur listan
-
 
 main()
-
-
-
-def test(t):
-
-    lista = [["yes", "no"], ["apple", "banana"], ["cherry", "orange"], ["kiwi", "melon"], ["mango", "perse"]]
-
-    for item in lista:
-        for i in range(len(item)):
-            if item[i] == t:
-                print(lista.index(item),i)
-                if i == 0:
-                    return print(lista[lista.index(item)][1])
-                elif i == 1:
-                    return print(lista[lista.index(item)][0])
-
-

@@ -1,0 +1,73 @@
+import string
+import random
+import logging
+positiva = ["Berätta mer", "Jag förstår...", "Ahaa...", "Jag lyssnar..."]
+person_list = [["jag", "du"], ["min", "din"], ["mitt", "ditt"], ["mig", "din"], ["mina", "dina"]]
+negativa = ["Varör är du på så där dåligt humör?", "Jävla problembarn!", "Åk tillbaka till pampas då!"]
+
+def log(svar):
+    f = open("eliza.log", "a")
+    f.write(svar)
+    f.close()
+
+def test(t):
+
+    for item in person_list:
+        print(item)
+        if t in item:
+            for i in range(len(item)):
+                if i == 0:
+                    return person_list[person_list.index(item)][1]
+                elif i == 1:
+                    return person_list[person_list.index(item)][0]
+        else:
+            return t
+
+def first_p(urspr_ord):
+    nya_ord = urspr_ord[:]
+    print(urspr_ord)
+    for i in range(len(urspr_ord)):
+        nya_ord[i] = test(urspr_ord[i])
+
+    print(nya_ord)
+    svar = " ".join(nya_ord)
+    print(svar)
+    log(svar)
+    if "nej" in urspr_ord or "aldrig" in urspr_ord:
+        svar = random.choice(negativa)
+        print(svar)
+        log(svar)
+    elif nya_ord == urspr_ord:
+        svar = random.choice(positiva)
+        print(svar)
+        log(svar)
+
+        """svar = " ".join(urspr_ord)
+        print(svar)
+        log(svar)"""
+
+
+
+def main():
+    print("**************************************************")
+    print()
+    print(" Välkommen till Elizas mottagning ")
+    print()
+    print("**************************************************")
+    print()
+    print('(Du kan sluta när som helst genom att svara "Hejs svejs")')
+    print()
+    print('Berätta för mig om dina problem...')
+
+    while True:
+        text = input("\n> ")
+        text = text.lower()
+        urspr_ord = str.split(text)
+        if text == "hejs svejs" or text == "ok, that does it!" or text == "sluta!" or text == "tack och god natt!":
+            break
+        else:
+            first_p(urspr_ord)
+    print('Tack för besöket. Betala in 150 EUR på mitt konto.')
+
+main()
+

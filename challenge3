@@ -21,11 +21,11 @@ def main():
     while True:
         text = input("\n> ")
         text = text.lower()
-        ny_text = str.replace(text, "!", "")
-        ny_text = str.replace(text, ":", "")
-        ny_text = str.replace(text, "?", "")
-        ny_text = str.replace(text, ".", "")
-        urspr_ord = str.split(ny_text)
+        ny_text1 = str.replace(text, "!", "")
+        ny_text2 = str.replace(ny_text1, ":", "")
+        ny_text3 = str.replace(ny_text2, "?", "")
+        ny_text4 = str.replace(ny_text3, ".", "")
+        urspr_ord = str.split(ny_text4)
         if text == "hejs svejs" or text == "ok, that does it!" or text == "sluta!" or text == "tack och god natt!":
             break
         else:

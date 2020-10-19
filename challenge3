@@ -1,11 +1,15 @@
 import string
 import random
+import logging
 positiva = ["Berätta mer", "Jag förstår...", "Ahaa...", "Jag lyssnar..."]
 first_person = ["jag", "min", "mitt", "mig", "mina"]
 second_person = ["du", "din", "ditt", "dig", "dina"]
 negativa = ["Varör är du på så där dåligt humör?", "Jävla problembarn!", "Åk tillbaka till pampas då!"]
-def logging():
-    
+def log(svar):
+    f = open("eliza.log", "a")
+    f.write(svar)
+    f.close()
+
 def main():
     print("**************************************************")
     print()
@@ -61,16 +65,16 @@ def first_p(urspr_ord):
     if "nej" in urspr_ord or "aldrig" in urspr_ord:
         svar = random.choice(negativa)
         print(svar)
-        logging.log(svar)
-    if nya_ord == urspr_ord:
+        log(svar)
+    elif nya_ord == urspr_ord:
         svar = random.choice(positiva)
         print(svar)
-        logging.log(svar)
+        log(svar)
 
     else:
         svar = " ".join(nya_ord)
         print(svar)
-        logging.log(svar)
+        log(svar)
 # Slå ihop alla ord i nya_ord-listan till en sträng och skriv ut den
 
  # Svara "smart" genom att slumpmässigt välja ett uttryck ur listan

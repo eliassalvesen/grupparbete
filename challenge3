@@ -35,7 +35,7 @@ def main():
 
 def log(svar):
     f = open("eliza.log", "a")
-    f.write(svar)
+    f.write(svar + "\n")
     f.close()
 
 

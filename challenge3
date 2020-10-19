@@ -81,3 +81,20 @@ def first_p(urspr_ord):
 
 
 main()
+
+
+
+def test(t):
+
+    lista = [["yes", "no"], ["apple", "banana"], ["cherry", "orange"], ["kiwi", "melon"], ["mango", "perse"]]
+
+    for item in lista:
+        for i in range(len(item)):
+            if item[i] == t:
+                print(lista.index(item),i)
+                if i == 0:
+                    return print(lista[lista.index(item)][1])
+                elif i == 1:
+                    return print(lista[lista.index(item)][0])
+
+

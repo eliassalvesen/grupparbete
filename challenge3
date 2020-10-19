@@ -1,25 +1,11 @@
-import string
 import random
-import logging
+
 positiva = ["Berätta mer", "Jag förstår...", "Ahaa...", "Jag lyssnar..."]
-person_list = [["jag", "du"], ["min", "din"], ["mitt", "ditt"], ["mig", "din"], ["mina", "dina"]]
+person_list = [["jag", "du"], ["min", "din"], ["mitt", "ditt"], ["mig", "dig"], ["mina", "dina"]]
 negativa = ["Varör är du på så där dåligt humör?", "Jävla problembarn!", "Åk tillbaka till pampas då!"]
+familjeproblem = ["Är din bror likadan?","Är din syster också sådan?","Det är nog ditt fel!", "Synd att din familj är smartare än du!"]
 
-def log(svar):
-    f = open("eliza.log", "a")
-    f.write(svar)
-    f.close()
 
-def test(t):
-
-    for item in person_list:
-        for i in range(len(item)):
-            if item[i] == t:
-                print(person_list.index(item),i)
-                if i == 0:
-                    return person_list[person_list.index(item)][1]
-                elif i == 1:
-                    return person_list[person_list.index(item)][0]
 
 def main():
     print("**************************************************")
@@ -43,23 +29,49 @@ def main():
     print('Tack för besöket. Betala in 150 EUR på mitt konto.')
 
 
+def log(svar):
+    f = open("eliza.log", "a")
+    f.write(svar)
+    f.close()
+
+
+def test(word):
+    whole = []
+    for x in range(len(person_list)):
+        whole.append(person_list[x][0])
+        whole.append(person_list[x][1])
+    if word not in whole:
+        return word
+    for item in person_list:
+        for i in range(len(item)):
+            if item[i] == word:
+                if i == 0:
+                    return str(item[1])
+                elif i == 1:
+                    return str(item[0])
+
+
 def first_p(urspr_ord):
     nya_ord = urspr_ord[:]
+    svar = ""
     for i in range(len(urspr_ord)):
-        test(urspr_ord[i])
-        nya_ord[i] = test(urspr_ord)
+        svar += str(test(urspr_ord[i]) + " ")
+    print(svar)
+    log(svar)
+
     if "nej" in urspr_ord or "aldrig" in urspr_ord:
         svar = random.choice(negativa)
         print(svar)
         log(svar)
+    elif "mamma" in urspr_ord or "pappa" in urspr_ord or "bror" in urspr_ord or "syster" in urspr_ord:
+        svar = random.choice(familjeproblem)
+        print(svar)
+        log(svar)
+
     elif nya_ord == urspr_ord:
         svar = random.choice(positiva)
         print(svar)
         log(svar)
 
-    else:
-        svar = " ".join(nya_ord)
-        print(svar)
-        log(svar)
 
 main()

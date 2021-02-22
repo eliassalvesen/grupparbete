@@ -2,7 +2,7 @@ import random
 
 positiva = ["Berätta mer", "Jag förstår...", "Ahaa...", "Jag lyssnar..."]
 person_list = [["jag", "du"], ["min", "din"], ["mitt", "ditt"], ["mig", "dig"], ["mina", "dina"]]
-negativa = ["Varör är du på så där dåligt humör?", "Jävla problembarn!", "Åk tillbaka till pampas då!"]
+negativa = ["Varör är du på så där dåligt humör?", "Usch vad jobbigt", "Inte då!?!"]
 familjeproblem = ["Är din bror likadan?","Är din syster också sådan?","Det är nog ditt fel!", "Synd att din familj är smartare än du!"]
 
 
